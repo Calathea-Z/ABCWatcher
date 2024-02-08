@@ -1,7 +1,7 @@
 The application is designed to automatically monitor changes on a specified webpage and send email notifications when updates are detected. Leveraging Python scripts, it provides a seamless way to keep users informed about new content or modifications on websites of interest, without the need for manual checking. Ideal for tracking updates on news sites, blogs, or any web page requiring regular surveillance, this tool streamlines the process of staying up-to-date with changes, ensuring users never miss important updates.
 
 
-
+Setup Instructions:
 
 Step 1: Downloading the Script from GitHub
 
