@@ -1,47 +1,90 @@
-This application monitors a webpage for changes and sends email alerts when any updates are detected. It's an efficient way to keep track of new content or modifications on your favorite websites without manually checking them.
+## Application Overview
 
-Setup Instructions:
+This application is designed to monitor the Durham ABC webpage for any changes, sending email alerts automatically when updates are detected. It provides an efficient solution for tracking content modifications on the website without the need for manual checks. With minimal adjustments, this application can be adapted to monitor other websites, offering a versatile tool for web change detection.
 
-Step 1: Downloading the Script from GitHub
+### Key Features
 
-Navigate to the GitHub Repository: Open your web browser and go to the GitHub page where the script is hosted.
+- **Automated Monitoring:** Continuously watches the Durham ABC page for changes.
+- **Email Alerts:** Sends notifications directly to your email upon detecting updates.
+- **Versatility:** Easily adaptable to monitor various websites with minor modifications.
 
-Download the Repository: Look for a green button labeled “Code” near the top of the page. Click it, then select “Download ZIP”.
+### Use Case
 
-Extract the ZIP File: Once downloaded, navigate to your Downloads folder, right-click the ZIP file, and choose “Extract All…”. Choose where you want to extract the files and confirm. Step 2: Setting Up Gmail
+This tool is particularly useful for individuals or organizations looking to stay informed about updates or changes to specific web pages, such as product listings, news updates, regulatory changes, or availability of new resources.
 
-Enable 2-Step Verification: Sign in to your Google Account. Go to the "Security" section. Find "2-Step Verification" and follow the prompts to enable it.
+### Getting Started
 
-Create an App Password: Still in the "Security" section, find "App passwords" (you might need to sign in again). Select “Mail” as the app, choose “Other” for the device, and name it (e.g., “Python Script”). Click “Generate”. Google will provide a 16-character password. Note this down; you’ll need it soon.
+For installation instructions, setup details, and how to adapt this application for other websites, please refer to the [Installation and Setup Instructions](#installation-and-setup-instructions) section.
 
-Step 3: Setting Up Python and Required Packages
+---
 
-Install Python: Download Python from python.org. Run the installer. Ensure you check “Add Python to PATH” before installing.
+By leveraging this application, users can save time and ensure they remain up-to-date with the latest website changes, enhancing their ability to respond to new information swiftly.
+# Website Watcher Setup Guide
 
-Install Required Packages: Open Command Prompt and install the necessary packages by running:
+This guide will help you set up the `watcher.py` script to monitor a website and alert you via email about any changes. The instructions are for Windows users.
 
-Step 4: Creating a .env File for Configuration
+## Prerequisites
 
-Navigate to the Script’s Folder: Open the folder where you extracted the GitHub download.
-Create the .env File: Right-click in the folder, select “New” > “Text Document”, and name it .env (ensure it’s not .env.txt). Open .env with Notepad, and add the following lines: Replace your_email@gmail.com with your Gmail address and the_16_character_password with the app password generated earlier. Save and close the file.
-Step 5: Testing the Script
+- Ensure Python is installed on your system.
+- Basic familiarity with Command Prompt in Windows is helpful.
 
-Open Command Prompt in the Script’s Folder: In the folder, hold Shift, right-click in an empty space, and choose “Open PowerShell window here” or “Open command window here”.
+## Installation and Setup Instructions
 
-Run the Script: Type python watcher.py (replace watcher.py with the actual script name if different) and press Enter. Verify it runs successfully and sends an email.
+### Step 1: Install Python
 
-Step 6: Scheduling the Script with Task Scheduler
+- Download the latest Python version from the [official Python website](https://www.python.org/downloads/).
+- Run the installer and make sure to select "Add Python to PATH".
 
-Open Task Scheduler: Press Windows + R, type taskschd.msc, and press Enter.
+### Step 2: Download the Script
 
-Create a New Task: Click “Create Task…” in the right-hand pane. Name your task (e.g., “Website Watcher”).
+- Navigate to the GitHub repository where `watcher.py` is hosted.
+- Click "Code" > "Download ZIP", and extract it to a folder, e.g., `C:\WebsiteWatcher`.
 
-Set the Trigger: Go to the “Triggers” tab, click “New…”. Set “Begin the task” to “On a schedule”. Choose “Daily” and set “Repeat task every” to “30 minutes” for a duration of “Indefinitely”. Click “OK”.
+### Step 3: Create a `.env` File
 
-Set the Action: Go to the “Actions” tab, click “New…”. Set “Action” to “Start a program”. In “Program/script”, type python. In “Add arguments (optional)”, type the path to your script (e.g., C:\Users\YourName\Downloads\ScriptFolder\watcher.py). Click “OK”.
+Within the script's directory:
 
-Finish and Test: Click “OK” to save the task. Right-click your task and select “Run” to test it.
+1. Create a file named `.env`.
+2. Add your email credentials:
 
-Final Notes
+   ```plaintext
+   EMAIL_USERNAME=your_email@example.com
+   EMAIL_PASSWORD=your_password
 
-Ensure the computer stays on for the script to run as scheduled. If the script or the environment changes (e.g., moving the script to a different folder), you’ll need to update the task in Task Scheduler accordingly. This guide assumes a Windows environment; steps may vary slightly
+### Step 4: Install Required Packages
+
+1. Open Command Prompt as administrator.
+2. Navigate to your script's directory:
+
+    ```shell
+    cd C:\WebsiteWatcher
+    ```
+
+3. Install the required packages:
+
+    ```shell
+    pip install requests python-dotenv
+    ```
+
+### Step 5: Run the Script
+
+- Execute the script via Command Prompt:
+
+    ```shell
+    python watcher.py
+    ```
+
+- Monitor the output for any indications of the script's execution status.
+
+### Automating the Script with Task Scheduler
+
+#### Step 6: Schedule the Script
+
+1. Open **Task Scheduler** from the Start menu.
+2. Click **Create Basic Task...** in the **Action** menu.
+3. Name your task (e.g., "Website Watcher").
+4. Choose **Daily** as the trigger, then click **Next**.
+5. Set the start date and time. Select **Repeat task every 1 hour** and choose **Indefinitely**.
+6. For the action, select **Start a program**, then click **Next**.
+7. Browse and select your Python executable in **Program/script**. In **Add arguments (optional)**, input the path to your `watcher.py` script.
+8. Finish the wizard. Your script will now run automatically at the set interval, alerting you to any website changes.
