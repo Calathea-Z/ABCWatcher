@@ -76,7 +76,7 @@ Within the script's directory:
 
 - Monitor the output for any indications of the script's execution status.
 
-### Automating the Script with Task Scheduler
+### Automating the Script with Task Scheduler (Windows)
 
 #### Step 6: Schedule the Script
 
