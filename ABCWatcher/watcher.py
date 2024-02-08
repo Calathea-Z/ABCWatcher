@@ -11,7 +11,7 @@ class WebsiteWatcher:
         self.url = url
         load_dotenv()  # Load environment variables at the beginning of the initialization
         self.email_sender = os.getenv("EMAIL_USERNAME")
-        self.email_receiver = os.getenv("EMAIL_USERNAME")  # Consider changing to "EMAIL_RECEIVER" if you intend to send the email to a different address
+        self.email_receiver = os.getenv("EMAIL_USERNAME") 
         self.email_password = os.getenv("EMAIL_PASSWORD")
         self.current_hash = self.load_last_hash()
 
@@ -76,5 +76,5 @@ class WebsiteWatcher:
 if __name__ == "__main__":
     target_url = "https://www.durhamabc.com/news"  # Change this URL to monitor a different website
 
-    watcher = WebsiteWatcher(target_url)  # Simplified constructor call
+    watcher = WebsiteWatcher(target_url)
     watcher.run()
